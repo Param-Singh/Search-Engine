@@ -1,8 +1,9 @@
 import React from 'react'
-import HomePage from './Components/Homepage/HomePage';
+import Routing from './Components/Router/Routing';
+
 function App() {
   return (
-   <HomePage/>
+    <Routing/>
   );
 }
 
