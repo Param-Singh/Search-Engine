@@ -8,25 +8,26 @@ import HomePage from '../Homepage/HomePage'
 import Loading from '../ResultPage.jsx/Loading'
 import Results from '../ResultPage.jsx/Results'
 
-export default function Routing() {
-    var query=''
+export default function Routing({query,queryFetcherTop}) {
+    var query1=''
     function queryFetcher(receivedQuery) {
-        query=receivedQuery
-        console.log(query)
+        query1=receivedQuery
+        queryFetcherTop(query1)
+        console.log(query1)
     }
     return (
     <Router>
         <Switch>
             <Route path='/' exact>
-            <HomePage queryFetcher={queryFetcher}/>
+                <HomePage queryFetcher={queryFetcher}/>
             </Route>
             <Route path='/loading' exact>
-            <Loading/>
+                <Loading/>
             </Route>
-            <Route path='/result' exact>
-            <Results query={query}/>
-            </Route>
+            <Route path='/result' exact render={()=><Results query={query1}/>} />
         </Switch>
     </Router>
     )
 }
+
+

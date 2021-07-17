@@ -1,0 +1,6 @@
+//add suitable font to description and add grey color to font
+//add ellipsis
+//make url actual link which opens new page
+//add input in result page 
+add news search page to homepage
+add image search btn to homepage

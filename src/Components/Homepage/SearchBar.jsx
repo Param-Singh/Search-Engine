@@ -1,10 +1,13 @@
 import React from 'react'
 import  '../../Css/SearchBar.css'
 import '../../Css/Homepage.css';
+
 export default function SearchBar({q,callbackQuery}) {
+
     function sendQuery(){
         const query = document.getElementById("searchQuery").value
         callbackQuery(query)
+        console.log('sb')
     }
     return (
         <div id="searchform">
