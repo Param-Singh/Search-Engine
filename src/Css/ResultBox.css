@@ -59,6 +59,7 @@
     /* background-color: bisque; */
     margin-left: 10vw;
 }
-.searchQuery1 {
-    margin-left: 0px;
+#searchQuery1 {
+    padding: 0px;
+    font-size: large;
 }

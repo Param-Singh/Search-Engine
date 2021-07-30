@@ -1,14 +1,12 @@
 import React,{useState,useEffect} from 'react'
 import ResultBox from './ResultBox'
 import '../../Css/ResultBox.css'
+import Loading from './Loading'
 
 
 export default function Results({query}) {
-    // render searchbar component here to make it like google so whenever query changes the results rerender
-    console.log(query)
     const [state, setState] = useState([])
     const [Query, setQuery] = useState(query)
-    
     useEffect(() => {
         const convertedQuery=getConvertedQuery(Query);
         fetch("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/WebSearchAPI?pageNumber=1&pageSize=10&autoCorrect=true&q="+convertedQuery, {
@@ -33,8 +31,8 @@ export default function Results({query}) {
             // cleanup
         }
     }, [Query])
-
     function changeQuery(){
+        setState([])
         setQuery(document.getElementById("searchQuery1").value)
         console.log(Query);
     }
@@ -45,7 +43,7 @@ export default function Results({query}) {
                 <button id='btt1' className="searchButton1" onClick={changeQuery} >Search</button>
             </div>
             <div>
-                {state.map((result) =>  <ResultBox url={result.url} head={result.title} description={result.body}/>)}
+                {state.length==0? <Loading/> : state.map((result) =>  <ResultBox url={result.url} head={result.title} description={result.body}/>)}
             </div>
         </div>
         
