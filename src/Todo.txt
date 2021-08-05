@@ -3,6 +3,9 @@
 //make url actual link which opens new page
 //add input in result page 
 //add loading effect
-add news search page to homepage
+////////////////////////////////////
+//add news search page to homepage
 add image search btn to homepage
-add images to each result
+//Add page numbers to results page
+///////////////////////////////////
+add speech to text

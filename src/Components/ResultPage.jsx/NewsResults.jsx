@@ -1,49 +1,35 @@
-import React,{useState,useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
+import Loading from './Loading';
 import ResultBox from './ResultBox'
 import '../../Css/ResultBox.css'
-import Loading from './Loading'
-
-export default function Results({query}) {
-    const [state, setState] = useState([])
-    const [Query, setQuery] = useState(query)
+export default function NewsResults() {
+    const [state,setState]=useState([])
     const [pageNumber,setPageNumber]=useState(1)
     useEffect(() => {
         setState([])
-        const convertedQuery=getConvertedQuery(Query);
-        const url=`https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/WebSearchAPI?pageNumber=${pageNumber}&pageSize=10&autoCorrect=true&q=${convertedQuery}`
-        fetch(url, {
+        fetch(`https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/TrendingNewsAPI?pageNumber=${pageNumber}&pageSize=10&withThumbnails=false&location=in`, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "a0f2c33513msh041ec0fce0d1da8p1cf66ejsn23a73b7fcd54",
 		"x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
 	}
-    })
-    .then(response => {
-        return response.json()
+    }).then(response => {
+        console.log(response);
+        return response.json();
     }).then(response=>{
         setState(response.value)
-    })
-    .catch(err => {
+        console.log(response.value)
+    }).catch(err => {
         console.error(err);
         alert('Something went Wrong! Try Again')
     });
         return () => {
             // cleanup
         }
-    }, [Query,pageNumber])
-    function changeQuery(){
-        setQuery(document.getElementById("searchQuery1").value)
-        setPageNumber(1)
-    }
+    }, [pageNumber])
     return (
-        <div className='horizontal1'>
-            <div id="searchform1">
-                <input id='searchQuery1' placeholder="Seach Something Here.." style={{color:'black', borderColor :'black'}}></input>
-                <button id='btt1' className="searchButton1" onClick={changeQuery} >Search</button>
-            </div>
-            <div>
-                {state.length===0? <Loading/> : state.map((result) =>  <ResultBox url={result.url} head={result.title} description={result.body}/>)}
-            </div>
+        <div>
+            {state.length==0? <Loading/> : state.map((result) =>  <ResultBox url={result.url} head={result.title} description={result.body}/>)}
             <div id='pageNavigation'>
                 <button className={`pageNumber + ${pageNumber==1 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(1)}>1</button>
                 <button className={`pageNumber + ${pageNumber==2 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(2)}>2</button>
@@ -57,18 +43,5 @@ export default function Results({query}) {
                 <button className={`pageNumber + ${pageNumber==10 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(10)}>10</button>
             </div>
         </div>
-        
     )
 }
-
-function getConvertedQuery(query) {
-    let finalQuery=''
-    for (const char of query) {
-        if (char === ' ')
-            finalQuery+='%20'
-        else
-            finalQuery+=char
-    }
-    return finalQuery
-}
-

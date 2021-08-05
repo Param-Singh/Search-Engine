@@ -7,7 +7,7 @@ import {
 import HomePage from '../Homepage/HomePage'
 import Loading from '../ResultPage.jsx/Loading'
 import Results from '../ResultPage.jsx/Results'
-
+import NewsResults from '../ResultPage.jsx/NewsResults'
 export default function Routing({query,queryFetcherTop}) {
     var query1=''
     function queryFetcher(receivedQuery) {
@@ -25,6 +25,9 @@ export default function Routing({query,queryFetcherTop}) {
                 <Loading/>
             </Route>
             <Route path='/result' exact render={()=><Results query={query1}/>} />
+            <Route path='/newsResults' exact>
+                <NewsResults/>
+            </Route>
         </Switch>
     </Router>
     )

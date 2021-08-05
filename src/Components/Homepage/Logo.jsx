@@ -8,9 +8,10 @@ export default function Logo() {
             marginBottom:'20px',
             color:'grey',
             fontFamily: 'Yanone Kaffeesatz',
-            fontSize:'40px'
+            fontSize:'40px',
+            color:'white'
             }}>
-            Param's Search Engine
+            Search Engine
         </div>
     )
 }
