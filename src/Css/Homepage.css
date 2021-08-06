@@ -36,7 +36,6 @@ body {
     color :white; 
     background: rgba(0, 0, 0, 0.397);
     border: 1px solid white; 
-
 }
 #searchform{
     display: flex;
@@ -138,4 +137,37 @@ body {
     to {
       transform: translateY(-2000px);
     }
+  }
+  .searchButton2 {
+    margin-top: 20px;
+    height: 7vh;
+    width :10vw;
+    background: none;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    min-width: 50px;
+    color: white;
+    margin-left: 1vw;
+}
+.searchButton2:hover {
+    color :white; 
+    background: rgba(0, 0, 0, 0.397);
+    border: 1px solid white; 
+}
+  .voice {
+    /* background-color: aqua; */
+    height: 100vh;
+    width: 100vw;
+    padding-top: 50vh;
+    padding-left: 80vw;
+    /* display: flex; */
+    /* justify-content: space-between */
+  }
+  .transcript{
+    font-family: "lato", sans-serif;
+    margin-left: 7vw;
+  }
+  .mic{
+    font-family: "lato", sans-serif;
+    margin-left: 7vw;
   }

@@ -8,4 +8,5 @@
 add image search btn to homepage
 //Add page numbers to results page
 ///////////////////////////////////
-add speech to text
+//add speech to text using new component where only transcript and search button is shown
+css makeover of results page
