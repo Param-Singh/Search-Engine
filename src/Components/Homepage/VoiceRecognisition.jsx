@@ -12,7 +12,6 @@ export default function VoiceRecognisition({q,callbackQuery}) {
     const {
         transcript,
         listening,
-        resetTranscript,
         browserSupportsSpeechRecognition
       } = useSpeechRecognition();
     const listenContinously = () => SpeechRecognition.startListening({ continuous: true,language: 'en-GB' });

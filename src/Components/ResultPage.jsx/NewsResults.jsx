@@ -29,18 +29,28 @@ export default function NewsResults() {
     }, [pageNumber])
     return (
         <div>
-            {state.length==0? <Loading/> : state.map((result) =>  <ResultBox url={result.url} head={result.title} description={result.body}/>)}
+            {state.length===0? <Loading/> : state.map((result) =>  <ResultBox url={result.url} head={result.title} description={result.body}/>)}
             <div id='pageNavigation'>
-                <button className={`pageNumber + ${pageNumber==1 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(1)}>1</button>
-                <button className={`pageNumber + ${pageNumber==2 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(2)}>2</button>
-                <button className={`pageNumber + ${pageNumber==3 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(3)}>3</button>
-                <button className={`pageNumber + ${pageNumber==4 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(4)}>4</button>
-                <button className={`pageNumber + ${pageNumber==5 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(5)}>5</button>
-                <button className={`pageNumber + ${pageNumber==6 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(6)}>6</button>
-                <button className={`pageNumber + ${pageNumber==7 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(7)}>7</button>
-                <button className={`pageNumber + ${pageNumber==8 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(8)}>8</button>
-                <button className={`pageNumber + ${pageNumber==9 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(9)}>9</button>
-                <button className={`pageNumber + ${pageNumber==10 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(10)}>10</button>
+                {/* eslint-disable-next-line*/}
+                <button className={`pageNumber + ${pageNumber===1 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(1)}>1</button>
+                {/* eslint-disable-next-line*/}
+                <button className={`pageNumber + ${pageNumber===2 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(2)}>2</button>
+                {/* eslint-disable-next-line*/}
+                <button className={`pageNumber + ${pageNumber===3 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(3)}>3</button>
+                {/* eslint-disable-next-line*/}
+                <button className={`pageNumber + ${pageNumber===4 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(4)}>4</button>
+                {/* eslint-disable-next-line*/}
+                <button className={`pageNumber + ${pageNumber===5 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(5)}>5</button>
+                {/* eslint-disable-next-line*/}
+                <button className={`pageNumber + ${pageNumber===6 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(6)}>6</button>
+                {/* eslint-disable-next-line*/}
+                <button className={`pageNumber + ${pageNumber===7 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(7)}>7</button>
+                {/* eslint-disable-next-line*/}
+                <button className={`pageNumber + ${pageNumber===8 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(8)}>8</button>
+                {/* eslint-disable-next-line*/}
+                <button className={`pageNumber + ${pageNumber===9 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(9)}>9</button>
+                {/* eslint-disable-next-line*/}
+                <button className={`pageNumber + ${pageNumber===10 ? ' '+'selected': ' '+'notSelected'}`} onClick={()=>setPageNumber(10)}>10</button>
             </div>
         </div>
     )
